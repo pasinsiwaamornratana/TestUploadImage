@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8">
+
+		<title>UploadBanner</title>
+
+		<script id="sap-ui-bootstrap"
+			src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-resourceroots='{"zupload.banner": ""}'>
+		</script>
+		
+		
+		<script src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
+		<script>
+		  // Initialize Firebase
+		  var config = {
+		    apiKey: "AIzaSyABUhdX7CmUMKWzjD-TOyo3HlLK0gN_oOY",
+		    authDomain: "uploadbanner.firebaseapp.com",
+		    databaseURL: "https://uploadbanner.firebaseio.com",
+		    storageBucket: "uploadbanner.appspot.com",
+		    messagingSenderId: "329014368548"
+		  };
+		  firebase.initializeApp(config);
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<script>
+			sap.ui.getCore().attachInit(function() {
+				new sap.m.Shell({
+					app: new sap.ui.core.ComponentContainer({
+						height : "100%",
+						name : "zupload.banner"
+					})
+				}).placeAt("content");
+			});
+		</script>
+	</head>
+
+	<body class="sapUiBody" id="content">
+	</body>
+
+</html>

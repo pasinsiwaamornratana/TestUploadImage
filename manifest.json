@@ -1,0 +1,121 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "zupload.banner",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.32.0"
+		}
+	},
+
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+
+	"sap.ui5": {
+		"_version": "1.1.0",
+		
+		"rootView": {
+			"viewName": "zupload.banner.view.MainView",
+			"type": "XML"
+		},
+		"config": {
+			"routerClass": "sap.m.routing.Router",
+			"viewType": "XML",
+			"viewPath": "zupload.banner.view",
+			"controlId": "idAppControl",
+			"controlAggregation": "detailPages",
+		    "bypassed": {
+		      "target": ["master", "notFound"]
+		    }
+		},
+		"routes": [
+		    {
+		      "pattern": "",
+		      "name": "master",
+		      "target": ["object", "master"]
+		    },
+		    {
+		      "pattern": "Objects/{objectId}",
+		      "name": "object",
+		      "target": ["master", "object"]
+		    }
+		],
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"targets": {
+		    "master": {
+		      "viewName": "Master",
+		      "viewLevel": 1,
+		      "viewId": "master",
+		      "controlAggregation": "masterPages"
+		    },
+		    "object": {
+		      "viewName": "Detail",
+		      "viewId": "detail",
+		      "viewLevel": 2
+		    },
+		    "detailObjectNotFound": {
+		      "viewName": "DetailObjectNotFound",
+		      "viewId": "detailObjectNotFound"
+		    },
+		    "detailNoObjectsAvailable": {
+		      "viewName": "DetailNoObjectsAvailable",
+		      "viewId": "detailNoObjectsAvailable"
+		    },
+		    "notFound": {
+		      "viewName": "NotFound",
+		      "viewId": "notFound"
+		    }
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "zupload.banner.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		}
+	}
+}

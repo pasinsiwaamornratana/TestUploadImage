@@ -1,0 +1,34 @@
+<mvc:View controllerName="zupload.banner.controller.View1" 
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified"
+	xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<l:VerticalLayout>
+						<u:FileUploader
+						    id="fileUploader1"
+						    name="myFileUpload"
+						    mimeType ="image,text"
+						    uploadUrl=""
+						    uploadOnChange="false"
+						    width="400px"
+						    tooltip="Upload your file to the local server"
+						    uploadComplete="handleUploadComplete" />
+						<Button
+						    text="Upload File"
+						    press="handleUploadPress" />
+						<Image id="image1" width="400px" height="400px" />
+						<!-- <Button 
+							text="Get image"
+							press="handleGetImg"
+						/> -->
+					</l:VerticalLayout>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

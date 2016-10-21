@@ -1,0 +1,77 @@
+<mvc:View
+		height="100%"
+		xmlns:core="sap.ui.core"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns="sap.m"
+		controllerName="zupload.banner.controller.MainView"
+		xmlns:semantic="sap.m.semantic"
+		xmlns:ui="sap.ca.ui"
+		displayBlock="true">
+ 
+	<SplitContainer>
+		<masterPages>
+			<semantic:MasterPage >
+			<!-- <semantic:MasterPage title="Master Page Title"> -->
+				<semantic:customHeaderContent>
+					<Button icon="sap-icon://add-photo" press="handleInsertImage"></Button>
+					<Button icon="sap-icon://delete" press="handleDeleteImage"></Button>
+				</semantic:customHeaderContent>
+				<semantic:content>
+					<List
+						id="ProductList"
+						items="{data>/list}"
+						includeItemInSelection="true"
+						>
+						<StandardListItem
+							title="{data>name}"
+							description="{data>name}"
+							icon="{data>image}"
+							iconDensityAware="false"
+							iconInset="false"
+							type="Active"
+							press="handlePress" />
+					</List>
+				</semantic:content>
+				<!-- <semantic:sort>
+					<semantic:SortSelect change="onSemanticSelectChange"
+											 items="{
+							path: '/ProductCollectionStats/Filters',
+							sorter: { path: 'Name' }
+							}">
+						<core:Item key="{type}" text="{type}" />
+					</semantic:SortSelect>
+				</semantic:sort> -->
+				<!-- <semantic:filter>
+					<semantic:FilterAction press="onSemanticButtonPress"/>
+				</semantic:filter>
+				<semantic:group>
+					<semantic:GroupAction  press="onSemanticButtonPress"/>
+				</semantic:group>
+				<semantic:addAction>
+					<semantic:AddAction press="onSemanticButtonPress"/>
+				</semantic:addAction>
+				<semantic:multiSelectAction>
+					<semantic:MultiSelectAction press="onMultiSelectPress"/>
+				</semantic:multiSelectAction> -->
+			</semantic:MasterPage>
+		</masterPages>
+		<detailPages>
+			<semantic:DetailPage title="Upload Banner">
+				
+				<semantic:customFooterContent>
+					<OverflowToolbarButton icon="sap-icon://settings" text="Settings" press="onPress"/>
+				<!-- 	<OverflowToolbarButton icon="sap-icon://video" text="Video" press="onPress"/> -->
+				</semantic:customFooterContent>
+ 
+				<!-- <semantic:customShareMenuContent>
+					<Button text="CustomShareBtn1" icon="sap-icon://color-fill" press="onPress"/>
+					<Button text="CustomShareBtn2" icon="sap-icon://crop" press="onPress"/>
+				</semantic:customShareMenuContent> -->
+ 
+			</semantic:DetailPage>
+ 
+		</detailPages>
+ 
+	</SplitContainer>
+ 
+</mvc:View>
