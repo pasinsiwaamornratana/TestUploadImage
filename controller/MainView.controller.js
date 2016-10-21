@@ -62,7 +62,7 @@ sap.ui.define([
 //		debugger;
 //		readTextFile("http://localhost:54307/UploadBanner/file/text.txt");
 		
-		var sPath = "http://localhost:54307/UploadBanner/file/text.txt";
+		var sPath = "https://raw.githubusercontent.com/pasinsiwaamornratana/eeee/master/file/text.txt";
 		
 		var blob = null;
 		var xhr = new XMLHttpRequest();
