@@ -62,13 +62,16 @@ sap.ui.define([
 //		debugger;
 //		readTextFile("http://localhost:54307/UploadBanner/file/text.txt");
 		
-		var sPath = "https://raw.githubusercontent.com/pasinsiwaamornratana/eeee/master/file/text.txt";
+//		var sPath = "http://localhost:54307/UploadBanner/file/text.txt";
+//		var sPath = "https://raw.githubusercontent.com/pasinsiwaamornratana/eeee/master/file/text.txt";
+		var sPath = $.sap.getModulePath("zupload.banner", "/file/text.txt");
 		
 		var blob = null;
 		var xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = function() {
 		    if (this.readyState == 4 && this.status == 200) {
-		      document.getElementById("demo").innerHTML = this.responseText;
+		    
+		    	console.log(this.responseText);
 		    }
 		  };
 		xhr.open("GET", sPath, true);
