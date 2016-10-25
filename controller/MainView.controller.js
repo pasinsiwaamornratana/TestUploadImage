@@ -64,14 +64,35 @@ sap.ui.define([
 		
 //		var sPath = "http://localhost:54307/UploadBanner/file/text.txt";
 //		var sPath = "https://raw.githubusercontent.com/pasinsiwaamornratana/eeee/master/file/text.txt";
-		var sPath = $.sap.getModulePath("zupload.banner", "/file/text.txt");
+		var sPath = $.sap.getModulePath("zupload.banner", "/file/Book1.csv");
 		
 		var blob = null;
 		var xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = function() {
 		    if (this.readyState == 4 && this.status == 200) {
 		    
-		    	console.log(this.responseText);
+//		    	console.log(this.responseText);
+		    	function processData(allText) {
+		    	    var allTextLines = allText.split(/\r\n|\n/);
+		    	    var headers = allTextLines[0].split(',');
+		    	    var lines = [];
+
+		    	    for (var i=1; i<allTextLines.length; i++) {
+		    	        var data = allTextLines[i].split(',');
+		    	        if (data.length == headers.length) {
+
+		    	            var tarr = [];
+		    	            for (var j=0; j<headers.length; j++) {
+		    	                tarr.push(headers[j]+":"+data[j]);
+		    	            }
+		    	            lines.push(tarr);
+		    	        }
+		    	    }
+		    	    // alert(lines);
+		    	    console.log(lines);
+		    	}
+		    	
+		    	processData(this.responseText);
 		    }
 		  };
 		xhr.open("GET", sPath, true);
